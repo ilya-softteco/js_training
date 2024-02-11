@@ -52,3 +52,5 @@ const c = 9;
 //c = 9 //TypeError: Assignment to constant variable
 console.log(`c: ${c}`)
 
+d = 10; // d = var
+console.log(`d: ${d}`)
