@@ -11,7 +11,7 @@ function func() {
     let letVariable = 'letVariable';
     var varVariable = 'varVariable';
     const constVariable = 'constVariable';
-
+    letGlobalVariable = 'letGlobalVariableNEW'
     if (true) {
         var varVariableIF = 'varVariableIF';
         let letVariableIF = 'letVariableIF';
@@ -30,6 +30,7 @@ function func() {
 
 
 func();
+console.log(letGlobalVariable)
 //console.log(letVariable) //ReferenceError
 //console.log(varVariable) //ReferenceError
 
