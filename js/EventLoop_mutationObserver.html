@@ -1,0 +1,52 @@
+<!--
+Event loop  - отдельный  механизм который позволяет использовать неблокирующую модель ввода и вывода
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="header">0</div>
+
+<button id="btn">click</button>
+<script>
+    /**
+     * BEFORE CHANGE
+     * AFTER CHANGE
+     * [MutationRecord]
+     * PROMISE
+     * setTimeout
+     * */
+    const btn = document.getElementById('btn');
+    const header = document.getElementById('header');
+
+    let counter = 0;
+
+    btn.addEventListener('click', () => {
+        console.log('BEFORE CHANGE')
+
+        counter += 1;
+        header.innerText = counter.toString();
+
+        console.log('AFTER CHANGE')
+        setTimeout(() => {console.log("setTimeout");}, 0);
+        Promise.resolve().then(() => console.log('PROMISE'))
+
+    })
+
+    const mutationObserver = new MutationObserver((mutations => {
+        console.log(mutations)
+    }))
+
+    mutationObserver.observe(header, {
+        childList: true
+    });
+</script>
+</body>
+</html>
