@@ -21,6 +21,7 @@
  * Promise 2
  *
  * **/
+const process = require('process');
 
 console.log('Console log 1');
 
@@ -32,6 +33,9 @@ setTimeout(() => {
     setTimeout(() => {
         Promise.resolve().then(() => {
             console.log('Promise 2');
+            process.nextTick(() => {
+                console.log('process.nextTick');
+            });
         })
         console.log('setTimeout 1');
     }, 0);
