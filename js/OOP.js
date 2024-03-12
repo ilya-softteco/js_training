@@ -24,6 +24,9 @@ class B extends A {
 //const a = new A();
 const b = new B();
 
+console.log(b.publicProperty)
+console.log(b._protectedProperty)
+//console.log(b.#privateProperty)
 
 
 

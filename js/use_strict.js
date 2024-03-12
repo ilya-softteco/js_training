@@ -24,6 +24,11 @@ var x = 3.14;
 delete x; // Ошибка: Нельзя удалить переменную
 
 
+hello();
+
+function hello(){
+    return 'Hello';
+}
 
 function x(p1, p1) {}; // Ошибка: Дублирование параметра p1
 
