@@ -5,4 +5,4 @@ export class ValidationPipe implements PipeTransform {
     transform(value: any): string {
         return `${value} Pipe`;
     }
-}
+ }

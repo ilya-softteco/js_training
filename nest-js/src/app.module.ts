@@ -4,9 +4,10 @@ import {AppService} from './app.service';
 import {LogGlobalMiddleware} from "./middleware/LogGlobalMiddleware";
 import {LogControllerMiddleware} from "./middleware/LogControllerMiddleware";
 import {LogRouteMiddleware} from "./middleware/LogRouteMiddleware";
+import { TestHooksModule } from './test-hooks/test-hooks.module';
 
 @Module({
-    imports: [],
+    imports: [TestHooksModule],
     controllers: [AppController],
     providers: [AppService],
 })

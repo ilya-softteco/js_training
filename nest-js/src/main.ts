@@ -8,6 +8,10 @@ async function bootstrap() {
 
   app.useGlobalGuards(new LogGlobalGuard());
   app.useGlobalInterceptors(new LogGlobalInterceptor());
+
+  app.enableShutdownHooks();
+  app.enableCors();
   await app.listen(3000);
+  //app.close();
 }
 bootstrap();
