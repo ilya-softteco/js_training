@@ -5,9 +5,15 @@ import {LogGlobalMiddleware} from "./middleware/LogGlobalMiddleware";
 import {LogControllerMiddleware} from "./middleware/LogControllerMiddleware";
 import {LogRouteMiddleware} from "./middleware/LogRouteMiddleware";
 import { TestHooksModule } from './test-hooks/test-hooks.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './users/users.module';
 
 @Module({
-    imports: [TestHooksModule],
+    imports: [
+        TestHooksModule,
+        MongooseModule.forRoot('mongodb://root:example@localhost:27018'),
+        UsersModule
+    ],
     controllers: [AppController],
     providers: [AppService],
 })
