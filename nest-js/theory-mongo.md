@@ -260,3 +260,39 @@ db.users.aggregate([
     ]
 ```
 
+* Вложенные запросы 
+
+``` 
+  Для выполнения вложенных запросов в mongodb можно использовать $elemMatch,
+  если данные(данные должны быть в виде массива) находятся 
+  в одной и тойже коллекции или $lookup , если данные находятся в разных коллекцях 
+  
+  
+    db.students.insertMany([
+      {
+          "_id": 1,
+          "name": "John",
+          "scores": [{"subject": "math", "score": 85}, {"subject": "english", "score": 90}]
+      },
+      {
+          "_id": 2,
+          "name": "Jane",
+          "scores": [{"subject": "math", "score": 95}, {"subject": "english", "score": 85}]
+      },
+      {
+          "_id": 3,
+          "name": "Bob",
+          "scores": [{"subject": "math", "score": 80}, {"subject": "english", "score": 88}]
+      }
+    ])
+  
+  
+  db.students.find({
+      "scores": {
+          $elemMatch: {
+              "subject": "math",
+              "score": {$gte: 85}
+          }
+      }
+  })
+```
