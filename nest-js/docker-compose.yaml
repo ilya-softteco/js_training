@@ -13,9 +13,3 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     container_name: mongodb_container
 
-  rabbitmq:
-    image: rabbitmq:3.12.14-management
-    restart: always
-    ports:
-      - 15672:15672
-    container_name: rabbitmq_container
