@@ -6,6 +6,6 @@ services:
     image: rabbitmq:3.12.14-management
     restart: always
     ports:
-      - 5672:5672
+      - 5678:5672
       - 15672:15672
     container_name: rabbitmq_container
